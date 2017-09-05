@@ -1,0 +1,15 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/fbjs/.*
+<PROJECT_ROOT>/node_modules/revalidate/.*
+<PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
+<PROJECT_ROOT>/node_modules/enzyme-matchers/.*
+<PROJECT_ROOT>/node_modules/jest-enzyme/.*
+
+[include]
+
+[libs]
+flow-typed
+custom-definitions
+
+[options]
+module.name_mapper='^\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
