@@ -2,7 +2,7 @@
 import React from 'react';
 import { Observable, Subscription } from 'rxjs';
 
-export type Injector<ComponentProps, StoreProps, UpstreamProps> = (
+export type Injector<ComponentProps, UpstreamProps> = (
   Component: React$ComponentType<ComponentProps>
 ) => React$ComponentType<UpstreamProps>;
 
@@ -14,7 +14,7 @@ export type PropsType<ComponentProps, StoreProps, UpstreamProps> = (
 export default function inject<ComponentProps, StoreProps, UpstreamProps>(
   store: Observable<StoreProps>,
   props: PropsType<ComponentProps, StoreProps, UpstreamProps>
-): Injector<ComponentProps, StoreProps, UpstreamProps> {
+): Injector<ComponentProps, UpstreamProps> {
   return (Component: React$ComponentType<ComponentProps>) => {
     type State = { store: StoreProps };
     class Inject extends React.Component<UpstreamProps, State> {

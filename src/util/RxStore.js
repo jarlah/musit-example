@@ -9,11 +9,13 @@ export function createStore<T>(
   const store = reducer$
     .scan((state, reducer) => reducer(state), initialState)
     .publishReplay(1)
-    .refCount();
-  if (keepAlive) {
-    store.subscribe((d) => {
-      console.log(d);
+    .refCount()
+    .startWith(initialState)
+    .do((d) => {
+      console.debug(d);
     });
+  if (keepAlive) {
+    store.subscribe(() => {});
   }
   return store;
 }
