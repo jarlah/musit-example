@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
-import type { CounterState } from './store';
 import store$, { decrease$, increase$ } from './store';
 import inject from '../../util/RxInject';
 
 export type Props = {
-  state: CounterState,
+  state: number,
   increase: () => mixed,
   decrease: () => mixed
 };

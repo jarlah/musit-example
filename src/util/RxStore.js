@@ -1,17 +1,19 @@
 // @flow
 import { Observable } from 'rxjs';
 
-export function createStore<State>(
-  reducer$: Observable<(state: State) => State>,
-  initialState$: State,
+export function createStore<T>(
+  reducer$: Observable<(T) => T>,
+  initialState: T,
   keepAlive: boolean = false
-): Observable<State> {
+): Observable<T> {
   const store = reducer$
-    .scan((state, reducer) => reducer(state), initialState$)
+    .scan((state, reducer) => reducer(state), initialState)
     .publishReplay(1)
     .refCount();
   if (keepAlive) {
-    store.subscribe(() => {});
+    store.subscribe((d) => {
+      console.log(d);
+    });
   }
   return store;
 }
