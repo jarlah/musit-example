@@ -1,20 +1,15 @@
 // @flow
-import { Observable } from 'rxjs';
-import { createStore, createAction } from 'react-rxjs/dist/RxStore';
+import { Observable, Subject } from 'rxjs';
+import { createStore } from '../../util/RxStore';
 
 export type CounterState = number;
 
-export const increase$ = createAction('increase$');
-export const decrease$ = createAction('decrease$');
+export const increase$ = new Subject();
+export const decrease$ = new Subject();
 
-const actions$ = Observable.merge(
-  increase$.mapTo({ type: 'increase' }),
-  decrease$.mapTo({ type: 'decrease' })
-);
+type Action = { type: string, payload?: ?any };
 
-export const reducer$ = actions$.map((action: { type: string }) => (
-  state: CounterState
-): CounterState => {
+const reduce = (action: Action) => (state: CounterState): CounterState => {
   switch (action.type) {
     case 'increase':
       return state + 1;
@@ -25,12 +20,11 @@ export const reducer$ = actions$.map((action: { type: string }) => (
     default:
       return state;
   }
-});
+};
 
-export const counterStore$: Observable<CounterState> = createStore(
-  'counterStore$',
-  reducer$,
-  Observable.of(0)
-);
+const reducer$ = Observable.merge(
+  increase$.mapTo({ type: 'increase' }),
+  decrease$.mapTo({ type: 'decrease' })
+).map(reduce);
 
-export default counterStore$;
+export default createStore(reducer$, 0);
