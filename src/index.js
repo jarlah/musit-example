@@ -1,3 +1,4 @@
+// @flow
 import 'es6-shim';
 import React from 'react';
 import ReactDOM from 'react-dom';
