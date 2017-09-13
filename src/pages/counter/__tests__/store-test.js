@@ -12,9 +12,9 @@ describe('counter store', () => {
       res: 'abcde-fgh'
     };
 
-    const n = { n: 1 };
-    const increase$ = ts.createHotObservable(streams.inc, { a: n, b: n, c: n, d: n});
-    const decrease$ = ts.createHotObservable(streams.dec, { a: n, b: n, c: n});
+    const n = { n: 1 };
+    const increase$ = ts.createHotObservable(streams.inc, { a: n, b: n, c: n, d: n });
+    const decrease$ = ts.createHotObservable(streams.dec, { a: n, b: n, c: n });
     const expectedResultMap = {
       a: 0,
       b: 1,
@@ -25,7 +25,9 @@ describe('counter store', () => {
       g: 0,
       h: 1
     };
-    ts.expectObservable(store({ increase$, decrease$ })).toBe(streams.res, expectedResultMap);
+    ts
+      .expectObservable(store({ increase$, decrease$ }))
+      .toBe(streams.res, expectedResultMap);
     ts.flush();
   });
 });
