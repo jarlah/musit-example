@@ -1,13 +1,15 @@
 // @flow
 import { Observable, Subject } from 'rxjs';
-import { createStore } from '../../util/RxStore';
+import { createStore } from 'react-rxjs/dist/RxStore';
 
-export const increase$: Subject<void> = new Subject();
-export const decrease$: Subject<void> = new Subject();
+type Number = { n: number };
+
+export const increase$: Subject<Number> = new Subject();
+export const decrease$: Subject<Number> = new Subject();
 
 const reducer$ = Observable.merge(
-  increase$.map(() => state => ++state),
-  decrease$.map(() => state => --state)
+  increase$.map(number => state => state + number.n),
+  decrease$.map(number => state => state - number.n)
 );
 
-export default createStore(reducer$, 0);
+export default createStore('counter', reducer$, 0);

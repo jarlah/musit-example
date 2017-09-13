@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import CounterPage from './pages/counter';
+import CounterPage from './pages/counter/container';
 
 const MusitRouter = () => (
   <BrowserRouter>

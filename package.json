@@ -21,7 +21,8 @@
     "react-router-dom": "^4.1.1",
     "react-scripts": "1.0.13",
     "revalidate": "^1.1.0",
-    "rxjs": "5.4.3"
+    "rxjs": "5.4.3",
+    "react-rxjs": "https://gitlab.com/MUSIT-Norway/react-rxjs.git#v3.0.7"
   },
   "devDependencies": {
     "codacy-coverage": "^2.0.2",
