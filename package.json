@@ -22,7 +22,7 @@
     "react-scripts": "1.0.13",
     "revalidate": "^1.1.0",
     "rxjs": "5.4.3",
-    "react-rxjs": "https://gitlab.com/jarlah/react-rxjs.git#v3.0.7"
+    "react-rxjs": "https://github.com/jarlah/react-rxjs.git#v3.0.7"
   },
   "devDependencies": {
     "codacy-coverage": "^2.0.2",
