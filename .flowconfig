@@ -10,5 +10,9 @@
 [libs]
 flow-typed
 
+[lints]
+all=warn
+untyped-type-import=error
+
 [options]
 module.name_mapper='^\(.*\)$' -> '<PROJECT_ROOT>/src/\1'

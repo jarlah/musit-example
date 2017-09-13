@@ -1,11 +1,11 @@
 {
-  "name": "MUSIT-Frontend",
+  "name": "react-rxjs-example",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/MUSIT-Norway/musit-frontend.git"
+    "url": "git://github.com/jarlah/react-rxjs-example.git"
   },
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "react-scripts": "1.0.13",
     "revalidate": "^1.1.0",
     "rxjs": "5.4.3",
-    "react-rxjs": "https://gitlab.com/MUSIT-Norway/react-rxjs.git#v3.0.7"
+    "react-rxjs": "https://gitlab.com/jarlah/react-rxjs.git#v3.0.7"
   },
   "devDependencies": {
     "codacy-coverage": "^2.0.2",
