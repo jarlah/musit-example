@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import CounterPage from './pages/counter';
 
-const MusitRouter = () => (
+const Routes = () => (
   <BrowserRouter>
     <div>
       <Route path="/" component={CounterPage} />
@@ -11,4 +11,4 @@ const MusitRouter = () => (
   </BrowserRouter>
 );
 
-export default MusitRouter;
+export default Routes;
