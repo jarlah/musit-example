@@ -1,5 +1,5 @@
 // @flow
-import { store } from '../store';
+import { storeFactory as store } from '../store';
 import { TestScheduler } from 'rxjs/Rx';
 
 describe('counter store', () => {

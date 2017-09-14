@@ -1,14 +1,15 @@
 // @flow
-import store$, { decrease$, increase$ } from './store';
+import counterStore from './store';
 import inject from 'react-rxjs/dist/RxInject';
 import { CounterPage } from './view';
 
-function props(state) {
+function props(props) {
   return {
-    state,
-    increase: n => increase$.next({ n }),
-    decrease: n => decrease$.next({ n })
+    state: props.count,
+    lastAction: props.lastAction,
+    increase: counterStore.actions.increase,
+    decrease: counterStore.actions.decrease
   };
 }
 
-export default inject(store$, props)(CounterPage);
+export default inject(counterStore.store, props)(CounterPage);
