@@ -16,14 +16,14 @@ describe('counter store', () => {
     const increase$ = ts.createHotObservable(streams.inc, { a: n, b: n, c: n, d: n });
     const decrease$ = ts.createHotObservable(streams.dec, { a: n, b: n, c: n });
     const expectedResultMap = {
-      a: 0,
-      b: 1,
-      c: 2,
-      d: 1,
-      e: 0,
-      f: -1,
-      g: 0,
-      h: 1
+      a: {count: 0, lastAction: null},
+      b: {count: 1, lastAction: 'inc'},
+      c: {count: 2, lastAction: 'inc'},
+      d: {count: 1, lastAction: 'dec'},
+      e: {count: 0, lastAction: 'dec'},
+      f: {count: -1, lastAction: 'dec'},
+      g: {count: 0, lastAction: 'inc'},
+      h: {count: 1, lastAction: 'inc'}
     };
     ts
       .expectObservable(store({ increase$, decrease$ }))
