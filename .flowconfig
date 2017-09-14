@@ -4,6 +4,7 @@
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/.*
 <PROJECT_ROOT>/node_modules/enzyme-matchers/.*
 <PROJECT_ROOT>/node_modules/jest-enzyme/.*
+<PROJECT_ROOT>/node_modules/http-parser-js/.*
 
 [include]
 
