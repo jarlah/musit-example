@@ -3,13 +3,16 @@ import counterStore from './store';
 import inject from 'react-rxjs/dist/RxInject';
 import { CounterPage } from './view';
 
-function props(props) {
+const { store, actions } = counterStore;
+const { increase, decrease } = actions;
+
+function props(storeState) {
   return {
-    state: props.count,
-    lastAction: props.lastAction,
-    increase: counterStore.actions.increase,
-    decrease: counterStore.actions.decrease
+    state: storeState.count,
+    lastAction: storeState.lastAction,
+    increase,
+    decrease
   };
 }
 
-export default inject(counterStore.store, props)(CounterPage);
+export default inject(store, props)(CounterPage);
