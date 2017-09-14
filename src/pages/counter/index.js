@@ -8,7 +8,7 @@ const { increase, decrease } = actions;
 
 function props(storeState) {
   return {
-    state: storeState.count,
+    count: storeState.count,
     lastAction: storeState.lastAction,
     increase,
     decrease
