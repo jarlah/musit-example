@@ -1,6 +1,6 @@
 // @flow
 import { Observable, Subject } from 'rxjs';
-import { createStore } from 'react-rxjs/dist/RxStore';
+import { createStore } from 'react-rxjs';
 
 export type Number = { n: number };
 export type StoreState = { count: number, lastAction: ?string };

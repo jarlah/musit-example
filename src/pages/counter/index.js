@@ -1,6 +1,6 @@
 // @flow
 import counterStore from './store';
-import inject from 'react-rxjs/dist/RxInject';
+import { inject } from 'react-rxjs';
 import { CounterPage } from './view';
 
 const { store, actions } = counterStore;
